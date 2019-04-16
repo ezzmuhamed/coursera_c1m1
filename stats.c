@@ -49,24 +49,24 @@ void main() {
 /* Add other Implementation File Code Here */
 
 
- void sort_array(unsigned char array[],unsigned int size)
+ void sort_array(unsigned char * a ,unsigned int size)
 { 
-  int i ,index , max_index = -1 , max = -1,j ,temp;
-  for(i = 0; i < (size - 1) ; i++)
+  int max_index=0 , temp = 0 ;
+  for(int i = 0; i < size ; i++)
      {
-        index = i  ;
-        for(j = 0; j < size ; j++)
+        max_index = i  ;
+        for(int j = i+1 ; j < size ; j++)
             {
-               if (array[j]  > max ){
+               if (a[max_index]  < a[j] ){
                        max_index = j;
-                       max = array[j];                  
+                                        
                   }
                
              }
-         temp = array[index] ;
-         array[index]= max; 
-         array[max_index] = temp;
-         max = -1;
+         temp = a[max_index] ;
+         a[max_index]= a[i]; 
+         a[i] = temp;
+         
        }
 }
 
